@@ -414,7 +414,7 @@ namespace DragonInjector_Firmware_Tool
             Directory.CreateDirectory(".\\bin");
 
             var githubProgram = new GitHubClient(new ProductHeaderValue("Nothing"));
-            var releasesProgram = await githubProgram.Repository.Release.GetAll("jeromedontdev", "DragonInjector-UpdateTool");
+            var releasesProgram = await githubProgram.Repository.Release.GetAll("jeromedontdev", "DragonInjector-Updater");
             var releaseProgram = releasesProgram[0];
             string gitProgramVersion = regexGIT.Match(releaseProgram.TagName.ToString()).ToString();
             if (gitProgramVersion != programVersion)
@@ -431,7 +431,7 @@ namespace DragonInjector_Firmware_Tool
             }
 
             var githubFW = new GitHubClient(new ProductHeaderValue("Nothing"));
-            var releasesFW = await githubFW.Repository.Release.GetAll("jeromedontdev", "DragonInjector-Firmware");
+            var releasesFW = await githubFW.Repository.Release.GetAll("jeromedontdev", "DragonInjector-FW");
             var releaseFW = releasesFW[0];
             string fwVersion = regexGIT.Match(releaseFW.TagName.ToString()).ToString();
             string urlFW = releaseFW.Assets[0].BrowserDownloadUrl.ToString();
@@ -477,7 +477,7 @@ namespace DragonInjector_Firmware_Tool
             }
 
             var githubBL = new GitHubClient(new ProductHeaderValue("Nothing"));
-            var releasesBL = await githubBL.Repository.Release.GetAll("jeromedontdev", "DragonInjector-Bootloader");
+            var releasesBL = await githubBL.Repository.Release.GetAll("jeromedontdev", "DragonInjector-BL");
             var releaseBL = releasesBL[0];
             string blVersion = regexGIT.Match(releaseBL.TagName.ToString()).ToString();
             string urlBL = releaseBL.Assets[0].BrowserDownloadUrl.ToString();
